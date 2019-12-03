@@ -22,3 +22,20 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+givenArgs = sys.argv
+if len(givenArgs) == 3:
+      month = givenArgs[1]
+      year = givenArgs[2]
+elif len(givenArgs) == 2:
+      month = givenArgs[1]
+      year = datetime.now().year
+else:
+      month = datetime.now().month
+      year = datetime.now().year
+
+try:
+  print(calendar.month(int(year), int(month)))
+except:
+  print('***\nFormat Expected\n14_cal.py <month> [<year>]\n***')
+  exit() 
